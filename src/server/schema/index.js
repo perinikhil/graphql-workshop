@@ -1,17 +1,31 @@
 const { gql } = require('apollo-server');
-const _ = require('lodash');
-const hotel = require('./hotel');
 
-const typeDefs = _.flatten([
+const typeDefs = [
   gql`
-    type Query
+    type Query {
+      hotels: [Hotel!]!
+    }
   `,
-  hotel.typeDefs
-])
+  gql`
+    type Hotel {
+      id: ID!,
+      name: String!
+    }
+  `,
+]
 
-const resolvers = _.merge(
-  hotel.resolvers
-)
+const resolvers = {
+  Query: {
+    hotels: () => ([{
+      id: 1,
+      name: 'Elmas'
+    }])
+  },
+  Hotel: {
+    id: (hotel) => hotel.id,
+    name: (hotel) => hotel.name,
+  }
+}
 
 module.exports = {
   typeDefs,
