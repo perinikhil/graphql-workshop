@@ -4,14 +4,14 @@ import ReviewScore from "@bookingcom/bui-react/components/ReviewScore";
 
 import "./HotelCard.css";
 
-function getFormattedPrice(priceInfo) {
-  return `${priceInfo.currencyCode} ${priceInfo.price}`;
+function getFormattedPrice(price) {
+  return `${price.currencyCode} ${price.amount}`;
 }
 
 function HotelCard(props) {
-  const { name, city, imageUrl, priceInfo, score } = props;
+  const { name, city, imageUrl, price, reviewScore } = props;
 
-  const price = getFormattedPrice(priceInfo);
+  const formattedPrice = getFormattedPrice(price);
   const formattedImage = `http://q-xx.bstatic.com${imageUrl}`;
 
   return (
@@ -24,8 +24,8 @@ function HotelCard(props) {
           <div className="hotel-card__title">{name}</div>
         </div>
         <div className="hotel-card__city-name">{city}</div>
-        <div className="hotel-card__city-price">{price}</div>
-        <ReviewScore score={score} />
+        <div className="hotel-card__city-price">{formattedPrice}</div>
+        <ReviewScore score={reviewScore} />
       </div>
     </div>
   );
@@ -35,13 +35,13 @@ HotelCard.defaultProps = {};
 
 HotelCard.propTypes = {
   name: PropTypes.string.isRequired,
-  priceInfo: PropTypes.shape({
-    price: PropTypes.number,
+  price: PropTypes.shape({
+    amount: PropTypes.number,
     currencyCode: PropTypes.string
   }).isRequired,
   imageUrl: PropTypes.string.isRequired,
   city: PropTypes.string.isRequired,
-  score: PropTypes.number.isRequired
+  reviewScore: PropTypes.number.isRequired
 };
 
 export default HotelCard;

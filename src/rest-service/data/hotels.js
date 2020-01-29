@@ -3,7 +3,6 @@ const hotels = [
     id: 186109,
     ufi: 20079110,
     name: "Circus Circus Hotel, Casino & Theme Park",
-    currencyCode: "USD",
     address: "2880 Las Vegas Boulevard South",
     city: "Las Vegas (Nevada)",
     imageUrl:
@@ -101,7 +100,8 @@ const hotels = [
       "/xdata/images/hotel/square600/42009813.jpg?k=918201e09e71adf1ef8218136dc48825e1406c77c28f3e7c1e961ea0e601c42d&o=",
     score: 8.4,
     priceInfo: {
-      price: 270.0
+      price: 270.0,
+      currencyCode: "EUR"
     }
   }
 ];
