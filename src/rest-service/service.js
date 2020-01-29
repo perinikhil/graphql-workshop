@@ -21,7 +21,6 @@ app.get("/api/hotels/", (req, res) => {
 
 app.get("/api/hotels/:id/", (req, res) => {
   const { id } = req.params;
-  console.log(">>> ID ", id);
 
   const hotel = hotels.filter(hotel => String(hotel.id) === id)[0];
 
