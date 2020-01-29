@@ -13,6 +13,7 @@
     "apollo-link-error": "^1.1.12",
     "apollo-link-http": "^1.5.16",
     "apollo-server": "^2.9.16",
+    "express": "^4.17.1",
     "graphql": "^14.6.0",
     "graphql-tag": "^2.10.1",
     "isomorphic-fetch": "^2.2.1",
@@ -26,6 +27,7 @@
   "scripts": {
     "start": "react-scripts start",
     "server": "node src/server/index.js",
+    "rest-service": "node src/rest-service/service.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
