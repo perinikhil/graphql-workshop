@@ -7,6 +7,7 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "apollo-server": "^2.9.16",
+    "express": "^4.17.1",
     "graphql": "^14.6.0",
     "isomorphic-fetch": "^2.2.1",
     "lodash": "^4.17.15",
@@ -19,6 +20,7 @@
   "scripts": {
     "start": "react-scripts start",
     "server": "node src/server/index.js",
+    "rest-service": "node src/rest-service/service.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
