@@ -1,4 +1,4 @@
-const { gql } = require('apollo-server');
+const { gql } = require("apollo-server");
 
 const schema = {
   typeDefs: [
@@ -15,32 +15,31 @@ const schema = {
     `,
     gql`
       type Hotel {
-        id: ID!,
+        id: ID!
         name: String!
         city: String!
         imageUrl: String!
         price: Price!
       }
-    `,
+    `
   ],
   resolvers: {
     Query: {
-      hotels: () => fetch('http://localhost:5000/api/hotels/')
-        .then((res) => res.json())
+      hotels: () =>
+        fetch("http://localhost:5000/api/hotels/").then(res => res.json())
     },
     Price: {
-      amount: (price) => price.price,
-      currencyCode: (price) => console.log(price) || price.currencyCode,
+      amount: price => price.price,
+      currencyCode: price => console.log(price) || price.currencyCode
     },
     Hotel: {
-      id: (hotel) => hotel.id,
-      name: (hotel) => hotel.name,
-      city: (hotel) => hotel.city,
-      imageUrl: (hotel) => hotel.imageUrl,
-      price: (hotel) => hotel.priceInfo,
+      id: hotel => hotel.id,
+      name: hotel => hotel.name,
+      city: hotel => hotel.city,
+      imageUrl: hotel => hotel.imageUrl,
+      price: hotel => hotel.priceInfo
     }
   }
 };
-
 
 module.exports = schema;
