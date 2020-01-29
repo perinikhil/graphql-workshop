@@ -3,3 +3,8 @@
   justify-content: center;
   flex-direction: row;
 }
+
+a {
+  color: inherit;
+  text-decoration: none;
+}

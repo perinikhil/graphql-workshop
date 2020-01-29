@@ -6,6 +6,7 @@ import {
   Redirect
 } from "react-router-dom";
 import SearchResultsList from "./SearchResults/SearchResultsList";
+import HotelPage from "./HotelPage/HotelPage";
 import { ApolloProvider } from "@apollo/react-hooks";
 import client from "./client";
 import "./App.css";
@@ -18,6 +19,9 @@ function App() {
           <Switch>
             <Route exact path="/search">
               <SearchResultsList />
+            </Route>
+            <Route exact path="/hotel/:id">
+              <HotelPage />
             </Route>
             <Redirect exact from="/" to="/search" />
           </Switch>
