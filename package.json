@@ -28,7 +28,6 @@
   "scripts": {
     "start": "npm run client & npm run server",
     "client": "react-scripts start",
-    "server": "npm run api-server & npm run graphql-server",
     "graphql-server": "nodemon --watch src/server src/server/index.js",
     "api-server": "nodemon --watch src/rest-service src/rest-service/service.js",
     "build": "react-scripts build",
