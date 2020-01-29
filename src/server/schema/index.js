@@ -16,9 +16,8 @@ const schema = {
   ],
   resolvers: {
     Query: {
-      hotels: () => fetch('http://example.com/api/hotels/')
+      hotels: () => fetch('http://localhost:5000/api/hotels/')
         .then((res) => res.json())
-        .then((res) => res.hotels)
     },
     Hotel: {
       id: (hotel) => hotel.id,

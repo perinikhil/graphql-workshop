@@ -27,9 +27,9 @@
   "scripts": {
     "start": "npm run client & npm run server",
     "client": "react-scripts start",
-    "server": "npm run graphql-server & npm run api-server",
-    "graphql-server": "node src/server/index.js",
-    "api-server": "node src/rest-service/service.js",
+    "server": "npm run api-server & npm run graphql-server",
+    "graphql-server": "nodemon --watch src/server src/server/index.js",
+    "api-server": "nodemon --watch src/rest-service src/rest-service/service.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -48,5 +48,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
   }
 }
