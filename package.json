@@ -25,9 +25,11 @@
     "react-scripts": "3.3.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "server": "node src/server/index.js",
-    "rest-service": "node src/rest-service/service.js",
+    "start": "npm run client & npm run server",
+    "client": "react-scripts start",
+    "server": "npm run graphql-server & npm run api-server",
+    "graphql-server": "node src/server/index.js",
+    "api-server": "node src/rest-service/service.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
