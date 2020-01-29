@@ -1,5 +1,6 @@
 const express = require("express");
 const hotels = require("./data/hotels");
+const reviews = require("./data/reviews");
 
 const app = express();
 const port = 5000;
@@ -29,7 +30,20 @@ app.get("/api/hotels/:id/", (req, res) => {
     return;
   }
 
-  res.status(404).send("Not found id");
+  res.status(404).send("Not found hotel id " + id);
+});
+
+app.get("/api/hotels/:id/reviews", (req, res) => {
+  const { id } = req.params;
+
+  const review = reviews[id];
+
+  if (review) {
+    res.send(review);
+    return;
+  }
+
+  res.status(404).send("Not found hotel id " + id);
 });
 
 app.listen(port, () =>
