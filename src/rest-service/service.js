@@ -2,7 +2,7 @@ const express = require("express");
 const hotels = require("./data/hotels");
 
 const app = express();
-const port = 3001;
+const port = 5000;
 
 app.get("/api/hotels/", (req, res) => {
   const { city } = req.query;
@@ -34,6 +34,6 @@ app.get("/api/hotels/:id/", (req, res) => {
 
 app.listen(port, () =>
   console.log(
-    "API is available at localhost:3001/api/hotels/ and localhost:3001/api/hotels/:id"
+    "API is available at localhost:5000/api/hotels/ and localhost:5000/api/hotels/:id"
   )
 );
