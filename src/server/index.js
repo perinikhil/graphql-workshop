@@ -1,3 +1,5 @@
+require('isomorphic-fetch');
+require('./mocks');
 const { ApolloServer } = require('apollo-server');
 const schema = require('./schema');
 
