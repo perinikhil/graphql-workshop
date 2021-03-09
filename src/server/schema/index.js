@@ -1,12 +1,15 @@
 const { gql } = require("apollo-server");
 
 const API_URL = 'http://localhost:5000/api';
+let dynamicReviewsCounter = 0;
+let dynamicReviews = [];
 
 const schema = {
   typeDefs: [
     gql`
       type Query {
-        hotels: [Hotel!]!
+        hotels(city: String = ""): [Hotel!]!
+        hotelById(id: ID!): Hotel!
       }
     `,
     gql`
@@ -17,19 +20,53 @@ const schema = {
     `,
     gql`
       type Hotel {
-        id: ID!,
+        id: ID!
         city: String!
         imageUrl: String!
         name: String!
         price: Price!
         reviewScore: Float!
+        reviews: [Review!]!
       }
-    `
+    `,
+    gql`
+      type Review {
+        id: ID!
+        title: String
+        positiveComment: String
+        negativeComment: String
+        guest: Guest!
+      }
+
+      input ReviewInput {
+        hotelId: ID!
+        guest: GuestInput!
+        title: String!
+      }
+    `,
+    gql`
+      type Guest {
+        name: String
+        countryCode: String
+      }
+
+      input GuestInput {
+        name: String!
+        email: String!
+      }
+    `,
+    gql`
+      type Mutation {
+        addReview(review: ReviewInput): Review!
+      }
+    `,
   ],
   resolvers: {
     Query: {
-      hotels: () => fetch(`${API_URL}/hotels/`)
-        .then((res) => res.json())
+      hotels: (_, args) => fetch(`${API_URL}/hotels/?city=${args.city}`)
+        .then((res) => res.json()),
+      hotelById: (_, args) => fetch(`${API_URL}/hotels/${args.id}`)
+        .then((res) => res.json()),
     },
     Price: {
       amount: (price) => price.price,
@@ -42,8 +79,39 @@ const schema = {
       name: (hotel) => hotel.name,
       price: (hotel) => hotel.priceInfo,
       reviewScore: (hotel) => hotel.score,
-    }
-  }
+      reviews: (hotel) => fetch(`${API_URL}/hotels/${hotel.id}/reviews`)
+        .then((res) => res.json())
+        .then((reviews) => [ 
+          ...reviews,
+          ...dynamicReviews.filter((review) => review.hotelId !== hotel.id),
+        ])
+    },
+    Review: {
+      id: (review) => review.id,
+      title: (review) => review.title,
+      positiveComment: (review) => review.hotelPositive,
+      negativeComment: (review) => review.hotelNegative,
+      guest: (review) => ({
+        name: review.guestName,
+        countryCode: review.guestCountryCode,
+      }),
+    },
+    Guest: {
+      name: (guest) => guest.name,
+      countryCode: (guest) => guest.countryCode,
+    },
+    Mutation: {
+      addReview: (_, args) => {
+        const review = {
+          ...args.review,
+          id: ++dynamicReviewsCounter,
+        };
+        console.log(args);
+        dynamicReviews.push(review);
+        return review;
+      },
+    },
+  },
 };
 
 module.exports = schema;
