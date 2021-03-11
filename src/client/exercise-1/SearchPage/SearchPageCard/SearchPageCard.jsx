@@ -11,23 +11,21 @@ const SearchPageCard = (props) => {
   const formattedImage = getFormattedImageUrl(imageUrl);
 
   return (
-    <div className="search-page-card">
-      <Link to={`/hotel/${id}`}>
-        <div className="search-page-card__side">
-          <img className="search-page-card__image" src={formattedImage} alt="" />
+    <Link className="search-page-card" to={`/hotel/${id}`}>
+      <div className="search-page-card__side">
+        <img className="search-page-card__image" src={formattedImage} alt="" />
+      </div>
+      <div className="search-page-card__main">
+        <div className="search-page-card__header">
+          <h2 className="search-page-card__title">{name}</h2>
+          <p className="search-page-card__city">{city}</p>
         </div>
-        <div className="search-page-card__main">
-          <div className="search-page-card__header">
-            <h2 className="search-page-card__title">{name}</h2>
-            <p className="search-page-card__city">{city}</p>
-          </div>
-          <div className="search-page-card__footer">
-            <ReviewScore score={reviewScore} />
-            <h3 className="search-page-card__price">{formattedPrice}</h3>
-          </div>
+        <div className="search-page-card__footer">
+          <ReviewScore score={reviewScore} />
+          <h3 className="search-page-card__price">{formattedPrice}</h3>
         </div>
-      </Link>
-    </div>
+      </div>
+    </Link>
   );
 }
 

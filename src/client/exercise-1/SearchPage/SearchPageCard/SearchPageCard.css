@@ -1,7 +1,11 @@
-.search-page-card a {
+.search-page-card {
   display: flex;
   padding: 16px;
   border: 1px solid #e0e0e0;
+}
+
+.search-page-card + .search-page-card {
+  border-top: none;
 }
 
 .search-page-card__side {
