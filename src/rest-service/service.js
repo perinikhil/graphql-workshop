@@ -12,8 +12,10 @@ app.get("/api/hotels/", (req, res) => {
     const formattedCity = hotel.city.toLowerCase();
     const formattedCityQuery = city && city.toLowerCase();
 
-    if (formattedCityQuery && !formattedCity.includes(formattedCityQuery))
+    if (formattedCityQuery && !formattedCity.includes(formattedCityQuery)) {
       return false;
+    }
+
     return true;
   });
 
@@ -47,7 +49,5 @@ app.get("/api/hotels/:id/reviews", (req, res) => {
 });
 
 app.listen(port, () =>
-  console.log(
-    "API is available at localhost:5000/api/hotels/ and localhost:5000/api/hotels/:id"
-  )
+  console.log(`API is available at http://localhost:${port}`)
 );
