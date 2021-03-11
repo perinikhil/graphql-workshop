@@ -1,0 +1,35 @@
+.hotel-page__image {
+  width: 100%;
+  height: 300px;
+}
+
+.hotel-page__section {
+  margin: 8px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.hotel-page__title,
+.hotel-page__city,
+.hotel-page__price {
+  margin: 0;
+}
+
+.hotel-page__review {
+  padding: 16px;
+  border: 1px solid #e0e0e0;
+}
+
+.hotel-page__review + .hotel-page__review {
+  border-top: none;
+}
+
+.hotel-page__review-name {
+  margin: 0;
+}
+
+.hotel-page__review-message {
+  margin: 8px 0 0 0;
+  font-size: 12px;
+}
