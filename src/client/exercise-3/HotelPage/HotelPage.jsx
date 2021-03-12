@@ -55,10 +55,12 @@ const HotelPage = () => {
       </div>
       <div className="hotel-page__review-list">
         {hotel.reviews.map((review) => (
-          <div className="hotel-page__review">
+          <div key={review.id} className="hotel-page__review">
             <h5 className="hotel-page__review-name">{review.guest.name}</h5>
-            {review.positiveComment && <p className="hotel-page__review-message">👍 : {review.positiveComment}</p>}
-            {review.negativeComment && <p className="hotel-page__review-message">👎 : {review.negativeComment}</p>}
+            {review.positiveComment &&
+              <p className="hotel-page__review-message">👍 : {review.positiveComment}</p>}
+            {review.negativeComment &&
+              <p className="hotel-page__review-message">👎 : {review.negativeComment}</p>}
           </div>
         ))}
       </div>

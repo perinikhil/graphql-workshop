@@ -1,0 +1,11 @@
+.search-page {
+  flex: 1
+}
+
+.search-page__destination {
+  display: flex;
+}
+
+.search-page__destination-input {
+  flex: 1;
+}
