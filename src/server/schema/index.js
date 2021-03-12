@@ -44,7 +44,7 @@ const schema = {
     `,
     gql`
       type Guest {
-        name: String
+        name: String!
       }
 
       input GuestInput {
@@ -87,7 +87,6 @@ const schema = {
       message: (review) => review.message || review.hotelPositive || review.hotelNegative,
       guest: (review) => ({
         name: review.guestName,
-        countryCode: review.guestCountryCode,
       }),
     },
     Guest: {
@@ -98,6 +97,7 @@ const schema = {
         const review = {
           ...args.review,
           id: ++dynamicReviewsCounter,
+          guestName: args.review.guest.name,
         };
         console.log(args);
         dynamicReviews.push(review);
