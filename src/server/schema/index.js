@@ -32,27 +32,23 @@ const schema = {
     gql`
       type Review {
         id: ID!
-        title: String
-        positiveComment: String
-        negativeComment: String
+        message: String!
         guest: Guest!
       }
 
       input ReviewInput {
         hotelId: ID!
+        message: String!
         guest: GuestInput!
-        title: String!
       }
     `,
     gql`
       type Guest {
         name: String
-        countryCode: String
       }
 
       input GuestInput {
         name: String!
-        email: String!
       }
     `,
     gql`
@@ -88,9 +84,7 @@ const schema = {
     },
     Review: {
       id: (review) => review.id,
-      title: (review) => review.title,
-      positiveComment: (review) => review.hotelPositive,
-      negativeComment: (review) => review.hotelNegative,
+      message: (review) => review.message || review.hotelPositive || review.hotelNegative,
       guest: (review) => ({
         name: review.guestName,
         countryCode: review.guestCountryCode,
@@ -98,7 +92,6 @@ const schema = {
     },
     Guest: {
       name: (guest) => guest.name,
-      countryCode: (guest) => guest.countryCode,
     },
     Mutation: {
       addReview: (_, args) => {

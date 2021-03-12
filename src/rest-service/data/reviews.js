@@ -43,7 +43,7 @@ const reviews = {
       language: "xu",
       stayCustomerType: "family_with_young_children",
       stayPurpose: "leisure",
-      title:
+      message:
         "Very nice I would stay there again if I had the money I would have stayed a few more days",
       userId: 382705145,
       hotelNegative:
@@ -123,7 +123,7 @@ const reviews = {
       language: "xu",
       stayCustomerType: "young_couple",
       stayPurpose: "leisure",
-      title: "My first time stay in las vegas city of fun and excitement.",
+      message: "My first time stay in las vegas city of fun and excitement.",
       userId: 319192855,
       hotelNegative:
         "The only complaint was no microwave or mini icebox. I was there for four days and didnr realize the hotel had vending machines which would have been nice to know because i had to go to main hotel to buy water. Other than this i was very happy i chose  circus circus hotel as my hotel!!!"
@@ -155,7 +155,7 @@ const reviews = {
       language: "xu",
       stayCustomerType: "family_with_young_children",
       stayPurpose: "other",
-      title: "Wonderful management and great staff",
+      message: "Wonderful management and great staff",
       userId: 385228674,
       hotelNegative:
         "Did not like the maids opening and emtering room without knocking, repeatedly after i politely asked then not to"
@@ -204,7 +204,7 @@ const reviews = {
       language: "xu",
       stayCustomerType: "with_friends",
       stayPurpose: "leisure",
-      title: "A perfect stop over in Vegas!",
+      message: "A perfect stop over in Vegas!",
       userId: 316104827,
       hotelNegative: ""
     },
@@ -220,7 +220,7 @@ const reviews = {
       language: "xu",
       stayCustomerType: "group",
       stayPurpose: "leisure",
-      title:
+      message:
         "Excellent stay. Will definitely stay here again if return to Las Vegas.",
       userId: 310162057,
       hotelNegative: "Everything was great!"
@@ -237,7 +237,7 @@ const reviews = {
       language: "xu",
       stayCustomerType: "family_with_young_children",
       stayPurpose: "leisure",
-      title: "Exceptional",
+      message: "Exceptional",
       userId: 125566847,
       hotelNegative: "Wish shuttle ran more often."
     },
@@ -268,7 +268,7 @@ const reviews = {
       language: "xu",
       stayCustomerType: "young_couple",
       stayPurpose: "leisure",
-      title:
+      message:
         "Staff with warm and friendly never lost patience with anyone. Food was good for the breakfast. It wa",
       userId: 367700921,
       hotelNegative: ""
@@ -315,7 +315,7 @@ const reviews = {
       language: "xu",
       stayCustomerType: "solo_traveller",
       stayPurpose: "business",
-      title: "In town for a convention",
+      message: "In town for a convention",
       userId: 93847928,
       hotelNegative: "Na "
     }
@@ -347,7 +347,7 @@ const reviews = {
       language: "xu",
       stayCustomerType: "family_with_young_children",
       stayPurpose: "leisure",
-      title: "fun times",
+      message: "fun times",
       userId: 61481489,
       hotelNegative: "n&#47;a"
     },
@@ -363,7 +363,7 @@ const reviews = {
       language: "xu",
       stayCustomerType: "family_with_young_children",
       stayPurpose: "other",
-      title: "Balanced experience. ",
+      message: "Balanced experience. ",
       userId: 380515244,
       hotelNegative:
         "Cup in room had straw wrapper in it. Elevator needs some work as it jumps like it has a speed bump. "
@@ -380,7 +380,7 @@ const reviews = {
       language: "xu",
       stayCustomerType: "family_with_young_children",
       stayPurpose: "leisure",
-      title: "Nice Stay",
+      message: "Nice Stay",
       userId: 267132341,
       hotelNegative:
         "That I had to wait till 3pm to check in because the front desk was waiting for the list from the cleaning service.\r\nthis usually is never an issue when checking in before anywhere else."
@@ -397,7 +397,7 @@ const reviews = {
       language: "xu",
       stayCustomerType: "young_couple",
       stayPurpose: "leisure",
-      title: "Overnight in Helena",
+      message: "Overnight in Helena",
       userId: 20399203,
       hotelNegative: "All was good."
     },
@@ -429,7 +429,7 @@ const reviews = {
       language: "xu",
       stayCustomerType: "young_couple",
       stayPurpose: "leisure",
-      title: "Vegas getaway",
+      message: "Vegas getaway",
       userId: 153734890,
       hotelNegative: ""
     },
@@ -460,7 +460,7 @@ const reviews = {
       language: "xu",
       stayCustomerType: "group",
       stayPurpose: "leisure",
-      title: "All in one place is the best .",
+      message: "All in one place is the best .",
       userId: 119042392,
       hotelNegative: "Pool have to be open no mather the seasons off the year ."
     },
@@ -494,7 +494,7 @@ const reviews = {
       language: "xu",
       stayCustomerType: "group",
       stayPurpose: "leisure",
-      title: "Great, will definitely  come back",
+      message: "Great, will definitely  come back",
       userId: 226084314,
       hotelNegative: "Time of trip was a transportation strike."
     },
@@ -510,7 +510,7 @@ const reviews = {
       language: "xu",
       stayCustomerType: "with_friends",
       stayPurpose: "leisure",
-      title: "Fantastic location and staff ",
+      message: "Fantastic location and staff ",
       userId: 14444644,
       hotelNegative:
         "The shower was in the bathtub, usual for Paris, and required some finesse to avoid spraying water all over the bathroom. It was fine for us, but larger guests might find this an issue. "
@@ -557,7 +557,7 @@ const reviews = {
       language: "xu",
       stayCustomerType: "group",
       stayPurpose: "leisure",
-      title: "Excellent hotel in the heart old Paris.",
+      message: "Excellent hotel in the heart old Paris.",
       userId: 322491828,
       hotelNegative: "The wifi was spotty during our stay."
     },
@@ -604,7 +604,7 @@ const reviews = {
       language: "xu",
       stayCustomerType: "group",
       stayPurpose: "leisure",
-      title:
+      message:
         "The location is great, close to everything but the staff is wonderful! Very helpful and kind!",
       userId: 214382463,
       hotelNegative: ""
@@ -636,7 +636,7 @@ const reviews = {
       language: "xu",
       stayCustomerType: "young_couple",
       stayPurpose: "leisure",
-      title: "Do try Hotel Trianon Rive Gauche",
+      message: "Do try Hotel Trianon Rive Gauche",
       userId: 235850304,
       hotelNegative:
         "For us this was not a problem but a person with physical disabilities would have a major problem in that in order to get to the elevator ( which is quite small) you need to walk up or down stairs. With that in mind however if you are not disabled the steps and small old elevator adds to the hotels charm of a hotel in old Paris!"
@@ -655,7 +655,7 @@ const reviews = {
       language: "xu",
       stayCustomerType: "young_couple",
       stayPurpose: "leisure",
-      title: "Superb",
+      message: "Superb",
       userId: 82055676,
       hotelNegative: "Can’t think !"
     },
@@ -685,7 +685,7 @@ const reviews = {
       language: "xu",
       stayCustomerType: "young_couple",
       stayPurpose: "leisure",
-      title: "Clean and very comfy",
+      message: "Clean and very comfy",
       userId: 181370214,
       hotelNegative: "No shelves for the toiletries inside the shower room"
     },
@@ -716,7 +716,7 @@ const reviews = {
       language: "xu",
       stayCustomerType: "group",
       stayPurpose: "leisure",
-      title: "Loved our stay!",
+      message: "Loved our stay!",
       userId: 6704551,
       hotelNegative:
         "Our room was a little small but given the price, location and cleanness there is really nothing to complain. The elevator was quite small (can fit only 2 people with luggage) - it&#39;s really trivial though."
@@ -733,7 +733,7 @@ const reviews = {
       language: "xu",
       stayCustomerType: "family_with_young_children",
       stayPurpose: "leisure",
-      title: "charming",
+      message: "charming",
       userId: 25926826,
       hotelNegative: ""
     },
@@ -779,7 +779,7 @@ const reviews = {
       language: "xu",
       stayCustomerType: "with_friends",
       stayPurpose: "leisure",
-      title: "Great hotel",
+      message: "Great hotel",
       userId: 62896635,
       hotelNegative: "Nothing!"
     },
@@ -795,7 +795,7 @@ const reviews = {
       language: "xu",
       stayCustomerType: "young_couple",
       stayPurpose: "leisure",
-      title: "Location is Perfect...a little Gem of a hotel :)",
+      message: "Location is Perfect...a little Gem of a hotel :)",
       userId: 195186528,
       hotelNegative:
         "Rooms are small, but C&#39;est la Vie...it is Paris after all, and typical for Europe."
@@ -814,7 +814,7 @@ const reviews = {
       language: "xu",
       stayCustomerType: "solo_traveller",
       stayPurpose: "leisure",
-      title: "Quaint hotel in lovely Montmarte",
+      message: "Quaint hotel in lovely Montmarte",
       userId: 63587438,
       hotelNegative:
         "The hotel faces a lively street, but that didn&#39;t bother me since i&#39;m from New York and used to the noise. Some people might need earplugs though if you are sensitive to noise."
@@ -831,7 +831,7 @@ const reviews = {
       language: "xu",
       stayCustomerType: "young_couple",
       stayPurpose: "leisure",
-      title: "Convenient, clean and appreciated!",
+      message: "Convenient, clean and appreciated!",
       userId: 317082737,
       hotelNegative:
         "No English Closed Captioning available and if you had the windows open, you would here the school children next door having recess for hours."
@@ -848,7 +848,7 @@ const reviews = {
       language: "xu",
       stayCustomerType: "solo_traveller",
       stayPurpose: "leisure",
-      title: "Good comfort at a great value",
+      message: "Good comfort at a great value",
       userId: 31666121,
       hotelNegative:
         "The bathroom was okay in size but the shower was a bit cramped."
@@ -864,7 +864,7 @@ const reviews = {
       language: "xu",
       stayCustomerType: "solo_traveller",
       stayPurpose: "leisure",
-      title: "Parfait in every way",
+      message: "Parfait in every way",
       userId: 144686634,
       hotelNegative:
         "France really needs to get on board with toilet paper holders and shelves in shower. Minor improvements really "
@@ -881,7 +881,7 @@ const reviews = {
       language: "xu",
       stayCustomerType: "solo_traveller",
       stayPurpose: "leisure",
-      title: "100% recommended",
+      message: "100% recommended",
       userId: 121994309,
       hotelNegative: ""
     },
@@ -897,7 +897,7 @@ const reviews = {
       language: "xu",
       stayCustomerType: "solo_traveller",
       stayPurpose: "leisure",
-      title: "A hidden gem in an unlikely location",
+      message: "A hidden gem in an unlikely location",
       userId: 326287555,
       hotelNegative: ""
     },
@@ -943,7 +943,7 @@ const reviews = {
       language: "xu",
       stayCustomerType: "solo_traveller",
       stayPurpose: "business",
-      title: "Rustic ",
+      message: "Rustic ",
       userId: 47731859,
       hotelNegative: "The fact that, there&#39;s no lift."
     },
@@ -977,7 +977,7 @@ const reviews = {
       language: "xu",
       stayCustomerType: "solo_traveller",
       stayPurpose: "leisure",
-      title: "Good value for money by Paris standard",
+      message: "Good value for money by Paris standard",
       userId: 16849949,
       hotelNegative: "Bathroom too small for standard Americans."
     },
@@ -1024,7 +1024,7 @@ const reviews = {
       language: "xu",
       stayCustomerType: "young_couple",
       stayPurpose: "leisure",
-      title: "Very good, we were very satisfied",
+      message: "Very good, we were very satisfied",
       userId: 230047817,
       hotelNegative:
         "Since i only understand english ,it would have been better for myself if  i had more english speaking channels on tv"
@@ -1085,7 +1085,7 @@ const reviews = {
       language: "xu",
       stayCustomerType: "young_couple",
       stayPurpose: "leisure",
-      title:
+      message:
         "great place to stay to get within most places of interest within the city",
       userId: 241641362,
       hotelNegative: ""
@@ -1165,7 +1165,7 @@ const reviews = {
       language: "xu",
       stayCustomerType: "solo_traveller",
       stayPurpose: "leisure",
-      title: "Generator Paris is highly recommended.",
+      message: "Generator Paris is highly recommended.",
       userId: 115533434,
       hotelNegative: ""
     },
@@ -1181,7 +1181,7 @@ const reviews = {
       language: "xu",
       stayCustomerType: "solo_traveller",
       stayPurpose: "leisure",
-      title: "Best hostel in Paris by far!",
+      message: "Best hostel in Paris by far!",
       userId: 127609815,
       hotelNegative:
         "Nothing. Really nothing. Maybe breakfast that was good and could have been better but I don&#39;t complain."
@@ -1198,7 +1198,7 @@ const reviews = {
       language: "xu",
       stayCustomerType: "solo_traveller",
       stayPurpose: "business",
-      title: "Recommended",
+      message: "Recommended",
       userId: 82596192,
       hotelNegative: ""
     },
@@ -1229,7 +1229,7 @@ const reviews = {
       language: "xu",
       stayCustomerType: "solo_traveller",
       stayPurpose: "leisure",
-      title: "I have to come back",
+      message: "I have to come back",
       userId: 123783127,
       hotelNegative: "The air conditioning was so cold :("
     },
@@ -1245,7 +1245,7 @@ const reviews = {
       language: "xu",
       stayCustomerType: "solo_traveller",
       stayPurpose: "leisure",
-      title: "Great ",
+      message: "Great ",
       userId: 313020728,
       hotelNegative: ""
     },
@@ -1276,7 +1276,7 @@ const reviews = {
       language: "xu",
       stayCustomerType: "solo_traveller",
       stayPurpose: "leisure",
-      title: "The best hostel I’ve stayed in yet",
+      message: "The best hostel I’ve stayed in yet",
       userId: 159760009,
       hotelNegative:
         "I would say the only thing that wasn’t ideal might be the location as it’s not extremely central, and that only became a problem for me as I encountered a lot of street harassment on my way to the Sacre Coeur. The hostel staff gave me some good advice about where was safe to walk, but I would recommend to be extra careful if you are traveling alone and trying to walk too far from the hostel. "
