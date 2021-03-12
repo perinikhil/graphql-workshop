@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { gql, useQuery } from '@apollo/client';
+import { gql, useQuery, useMutation } from '@apollo/client';
 import ReviewScore from "@bookingcom/bui-react/components/ReviewScore";
 import InputText from '@bookingcom/bui-react/components/InputText';
 import Button from "@bookingcom/bui-react/components/Button";
@@ -30,17 +30,30 @@ const hotelQuery = gql`
   }
 `;
 
+const reviewCreateMutation = gql`
+  mutation($review: ReviewInput!) {
+    addReview(review: $review) {
+      id
+      message
+      guest {
+        name
+      }
+    }
+  }
+`;
+
 const HotelPage = () => {
   const { id } = useParams();
-  const { loading, error, data } = useQuery(hotelQuery, { variables: { id } });
+  const { loading: hotelLoading, error: hotelError, data, refetch: hotelRefetch } = useQuery(hotelQuery, { variables: { id } });
+  const [createReview, { loading: createReviewLoading, error: createReviewError }] = useMutation(reviewCreateMutation);
   const [review, setReview] = React.useState({
-    name: '',
+    guestName: '',
     message: '',
   });
 
-  if (loading) return <p>Loading...</p>;
+  if (hotelLoading) return <p>Loading...</p>;
 
-  if (error) return <p>{error.message}</p>;
+  if (hotelError) return <p>{hotelError.message}</p>;
 
   const { hotelById: hotel } = data;
 
@@ -56,7 +69,20 @@ const HotelPage = () => {
 
   const handleReviewCreate = (e) => {
     e.preventDefault();
-    console.log(review);
+    createReview({
+      variables: {
+        review: {
+          hotelId: id,
+          message: review.message,
+          guest: {
+            name: review.guestName
+          }
+        }
+      }
+    }).then(() => {
+      hotelRefetch();
+    })
+    .catch(() => {});
   }
 
   return (
@@ -76,10 +102,12 @@ const HotelPage = () => {
       >
         <InputText
           className="hotel-page__review-form-name"
-          name="name"
+          name="guestName"
           placeholder="Name"
-          value={review.name}
+          value={review.guestName}
           onChange={handleReviewChange}
+          disabled={createReviewLoading}
+          required
         />
         <InputText
           className="hotel-page__review-form-message"
@@ -87,13 +115,17 @@ const HotelPage = () => {
           placeholder="Leave a positive review only..."
           value={review.message}
           onChange={handleReviewChange}
+          disabled={createReviewLoading}
         />
         <Button
-          className="hotel-page__review-add-review-submit"
+          className="hotel-page__review-form-submit"
           type="submit"
+          disabled={createReviewLoading}
         >
           Add Review
         </Button>
+        {createReviewError &&
+          <p className="hotel-page__review-form-error">{createReviewError.message}</p>}
       </form>
       <div className="hotel-page__review-list">
         {hotel.reviews.map((review) => (

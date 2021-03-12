@@ -1,0 +1,45 @@
+.search-page-card {
+  display: flex;
+  padding: 16px;
+  border: 1px solid #e0e0e0;
+}
+
+.search-page-card + .search-page-card {
+  border-top: none;
+}
+
+.search-page-card__side {
+  flex: none;
+  margin-right: 16px;
+}
+
+.search-page-card__image {
+  height: 120px;
+  width: 120px;
+}
+
+.search-page-card__main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.search-page-card__title {
+  margin: 4px 0;
+}
+
+.search-page-card__city {
+  margin: 4px 0;
+  font-size: 14px;
+}
+
+.search-page-card__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.search-page-card__price {
+  margin: 0;
+}
