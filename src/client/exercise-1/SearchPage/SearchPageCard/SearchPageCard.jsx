@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import ReviewScore from "@bookingcom/bui-react/components/ReviewScore";
 import { getFormattedImageUrl,getFormattedPrice } from "../../utils";
 import "./SearchPageCard.css";
 
@@ -21,7 +20,7 @@ const SearchPageCard = (props) => {
           <p className="search-page-card__city">{city}</p>
         </div>
         <div className="search-page-card__footer">
-          <ReviewScore score={reviewScore} />
+          <h4 className="search-page-card__review-score">{reviewScore}</h4>
           <h3 className="search-page-card__price">{formattedPrice}</h3>
         </div>
       </div>

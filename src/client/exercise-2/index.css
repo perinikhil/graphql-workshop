@@ -18,6 +18,20 @@ code {
     monospace;
 }
 
-.bui-input-text__decorator {
-  padding: 0;
+input {
+  padding: 16px;
+  border: 1px solid #e0e0e0e0;
+  outline-color: grey;
+}
+
+button {
+  padding: 16px;
+  color: white;
+  background-color: navy;
+  border: 1px solid navy;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: blue;
 }

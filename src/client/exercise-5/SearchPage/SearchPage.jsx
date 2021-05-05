@@ -1,7 +1,5 @@
 import React from "react";
 import { gql, useQuery } from '@apollo/client';
-import InputText from '@bookingcom/bui-react/components/InputText';
-import Button from '@bookingcom/bui-react/components/Button';
 import SearchPageCard from './SearchPageCard/SearchPageCard';
 import "./SearchPage.css";
 
@@ -42,16 +40,19 @@ const SearchPage = () => {
   return (
     <div className="search-page">
       <div className="search-page__destination">
-        <InputText
+        <input
           className="search-page__destination-input"
           name="destination"
           placeholder="Where would you like to go?"
-          value={destination}
           onChange={handleDestinationChange}
+          value={destination}
         />
-        <Button className="search-page__destination-search" onClick={handleSearch}>
+        <button
+          className="search-page__destination-search"
+          onClick={handleSearch}
+        >
           Search
-        </Button>
+        </button>
       </div>
       <div className="search-page__list">
         {hotels.map(hotel => (
