@@ -1,9 +1,9 @@
 const express = require("express");
-const hotels = require("./data/hotels");
-const reviews = require("./data/reviews");
+const hotels = require("../data/hotels");
+const reviews = require("../data/reviews");
 
 const app = express();
-const port = 5000;
+const port = process.env.PORT || 3000;
 
 app.get("/api/hotels/", (req, res) => {
   const { city } = req.query;
@@ -48,6 +48,4 @@ app.get("/api/hotels/:id/reviews", (req, res) => {
   res.status(404).send("Not found hotel id " + id);
 });
 
-app.listen(port, () =>
-  console.log(`API is available at http://localhost:${port}`)
-);
+module.exports = app;
