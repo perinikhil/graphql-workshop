@@ -8,4 +8,10 @@
 
 .search-page__destination-input {
   flex: 1;
+  font-size: 18px;
+}
+
+.search-page__destination-search {
+  width: 20%;
+  font-size: 18px;
 }

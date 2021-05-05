@@ -1,9 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { gql, useQuery } from '@apollo/client';
-import ReviewScore from "@bookingcom/bui-react/components/ReviewScore";
-import InputText from '@bookingcom/bui-react/components/InputText';
-import Button from "@bookingcom/bui-react/components/Button";
 import { getFormattedImageUrl,getFormattedPrice } from "../utils";
 import "./HotelPage.css";
 
@@ -47,10 +44,11 @@ const HotelPage = () => {
   const formattedPrice = getFormattedPrice(hotel.price);
   const formattedImage = getFormattedImageUrl(hotel.imageUrl);
 
-  const handleReviewChange = ({ name, value }) => {
+  const handleReviewChange = (e) => {
+    e.persist();
     setReview((prevReview) => ({
       ...prevReview,
-      [name]: value,
+      [e.target.name]: e.target.value,
     }));
   }
 
@@ -64,7 +62,7 @@ const HotelPage = () => {
       <img className="hotel-page__image" src={formattedImage} alt="" />
       <div className="hotel-page__section">
         <h2 className="hotel-page__title">{hotel.name}</h2>
-        <ReviewScore score={hotel.reviewScore} />
+        <h4 className="hotel-page__review-score">{hotel.reviewScore}</h4>
       </div>
       <div className="hotel-page__section">
         <p className="hotel-page__city">{hotel.city}</p>
@@ -74,26 +72,26 @@ const HotelPage = () => {
         className="hotel-page__review-form"
         onSubmit={handleReviewCreate}
       >
-        <InputText
+        <input
           className="hotel-page__review-form-name"
           name="name"
           placeholder="Name"
-          value={review.name}
           onChange={handleReviewChange}
+          value={review.name}
         />
-        <InputText
+        <input
           className="hotel-page__review-form-message"
           name="message"
           placeholder="Leave a positive review only..."
-          value={review.message}
           onChange={handleReviewChange}
+          value={review.message}
         />
-        <Button
-          className="hotel-page__review-add-review-submit"
+        <button
+          className="hotel-page__review-form-submit"
           type="submit"
         >
           Add Review
-        </Button>
+        </button>
       </form>
       <div className="hotel-page__review-list">
         {hotel.reviews.map((review) => (

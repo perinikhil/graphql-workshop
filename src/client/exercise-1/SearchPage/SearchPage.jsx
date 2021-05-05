@@ -3,7 +3,7 @@ import SearchPageCard from './SearchPageCard/SearchPageCard';
 import "./SearchPage.css";
 
 const hotel = {
-  id: 2861366,
+  id: '2861366',
   reviewScore: 7.5,
   name: "Tru By Hilton Las Vegas Airport NV",
   city: "Las Vegas",

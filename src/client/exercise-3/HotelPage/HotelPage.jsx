@@ -1,5 +1,4 @@
 import React from "react";
-import ReviewScore from "@bookingcom/bui-react/components/ReviewScore";
 import { getFormattedImageUrl,getFormattedPrice } from "../utils";
 import "./HotelPage.css";
 
@@ -47,7 +46,7 @@ const HotelPage = () => {
       <img className="hotel-page__image" src={formattedImage} alt="" />
       <div className="hotel-page__section">
         <h2 className="hotel-page__title">{hotel.name}</h2>
-        <ReviewScore score={hotel.reviewScore} />
+        <h4 className="hotel-page__review-score">{hotel.reviewScore}</h4>
       </div>
       <div className="hotel-page__section">
         <p className="hotel-page__city">{hotel.city}</p>

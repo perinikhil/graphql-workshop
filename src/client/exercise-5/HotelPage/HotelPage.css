@@ -16,6 +16,14 @@
   margin: 0;
 }
 
+.hotel-page__review-score {
+  background-color: navy;
+  color: white;
+  padding: 4px;
+  margin: 0;
+  border-radius: 4px;
+}
+
 .hotel-page__review-form {
   margin: 24px 0;
   display: flex;

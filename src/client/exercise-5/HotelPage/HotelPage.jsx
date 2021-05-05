@@ -1,9 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { gql, useQuery, useMutation } from '@apollo/client';
-import ReviewScore from "@bookingcom/bui-react/components/ReviewScore";
-import InputText from '@bookingcom/bui-react/components/InputText';
-import Button from "@bookingcom/bui-react/components/Button";
 import { getFormattedImageUrl,getFormattedPrice } from "../utils";
 import "./HotelPage.css";
 
@@ -47,7 +44,7 @@ const HotelPage = () => {
   const { loading: hotelLoading, error: hotelError, data, refetch: hotelRefetch } = useQuery(hotelQuery, { variables: { id } });
   const [createReview, { loading: createReviewLoading, error: createReviewError }] = useMutation(reviewCreateMutation);
   const [review, setReview] = React.useState({
-    guestName: '',
+    name: '',
     message: '',
   });
 
@@ -60,10 +57,11 @@ const HotelPage = () => {
   const formattedPrice = getFormattedPrice(hotel.price);
   const formattedImage = getFormattedImageUrl(hotel.imageUrl);
 
-  const handleReviewChange = ({ name, value }) => {
+  const handleReviewChange = (e) => {
+    e.persist();
     setReview((prevReview) => ({
       ...prevReview,
-      [name]: value,
+      [e.target.name]: e.target.value,
     }));
   }
 
@@ -75,7 +73,7 @@ const HotelPage = () => {
           hotelId: id,
           message: review.message,
           guest: {
-            name: review.guestName
+            name: review.name
           }
         }
       }
@@ -90,7 +88,7 @@ const HotelPage = () => {
       <img className="hotel-page__image" src={formattedImage} alt="" />
       <div className="hotel-page__section">
         <h2 className="hotel-page__title">{hotel.name}</h2>
-        <ReviewScore score={hotel.reviewScore} />
+        <h4 className="hotel-page__review-score">{hotel.reviewScore}</h4>
       </div>
       <div className="hotel-page__section">
         <p className="hotel-page__city">{hotel.city}</p>
@@ -98,32 +96,29 @@ const HotelPage = () => {
       </div>
       <form
         className="hotel-page__review-form"
+        disabled={createReviewLoading}
         onSubmit={handleReviewCreate}
       >
-        <InputText
+        <input
           className="hotel-page__review-form-name"
-          name="guestName"
+          name="name"
           placeholder="Name"
-          value={review.guestName}
           onChange={handleReviewChange}
-          disabled={createReviewLoading}
-          required
+          value={review.name}
         />
-        <InputText
+        <input
           className="hotel-page__review-form-message"
           name="message"
           placeholder="Leave a positive review only..."
-          value={review.message}
           onChange={handleReviewChange}
-          disabled={createReviewLoading}
+          value={review.message}
         />
-        <Button
+        <button
           className="hotel-page__review-form-submit"
           type="submit"
-          disabled={createReviewLoading}
         >
           Add Review
-        </Button>
+        </button>
         {createReviewError &&
           <p className="hotel-page__review-form-error">{createReviewError.message}</p>}
       </form>
