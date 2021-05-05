@@ -1,6 +1,8 @@
-const { gql } = require("apollo-server");
+require('isomorphic-fetch');
+const { gql } = require('apollo-server-micro');
 
-const API_URL = 'http://localhost:5000/api';
+// const API_URL = 'http://localhost:5000/api';
+const API_URL = 'https://graphql-workshop-rest-api.vercel.app/api';
 let dynamicReviewsCounter = 0;
 let dynamicReviews = [];
 
@@ -99,7 +101,6 @@ const schema = {
           id: ++dynamicReviewsCounter,
           guestName: args.review.guest.name,
         };
-        console.log(args);
         dynamicReviews.push(review);
         return review;
       },

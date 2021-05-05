@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "start": "react-scripts start",
-    "graphql-server": "nodemon --watch src/server src/server/index.js",
-    "api-server": "nodemon --watch src/rest-service src/rest-service/service.js",
+    "graphql-server": "cd ./src/server ; vercel dev --listen 4000",
+    "api-server": "cd ./src/rest-service ; vercel dev --listen 5000",
     "build": "react-scripts build",
     "eject": "react-scripts eject"
   },

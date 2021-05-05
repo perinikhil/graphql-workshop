@@ -3,7 +3,6 @@ const hotels = require("../data/hotels");
 const reviews = require("../data/reviews");
 
 const app = express();
-const port = process.env.PORT || 3000;
 
 app.get("/api/hotels/", (req, res) => {
   const { city } = req.query;
