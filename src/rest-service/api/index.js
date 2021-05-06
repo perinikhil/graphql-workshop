@@ -3,6 +3,10 @@ const hotels = require("../data/hotels");
 const reviews = require("../data/reviews");
 
 const app = express();
+app.use(express.json())
+
+let dynamicReviewsCounter = 0;
+let dynamicReviews = {};
 
 app.get("/api/hotels/", (req, res) => {
   const { city } = req.query;
@@ -37,14 +41,36 @@ app.get("/api/hotels/:id/", (req, res) => {
 app.get("/api/hotels/:id/reviews", (req, res) => {
   const { id } = req.params;
 
-  const review = reviews[id];
+  const hotelReviews = [
+    ...reviews[id],
+    ...(dynamicReviews[id] || []),
+  ];
 
-  if (review) {
-    res.send(review);
+  if (hotelReviews) {
+    res.send(hotelReviews);
     return;
   }
 
   res.status(404).send("Not found hotel id " + id);
+});
+
+app.post("/api/hotels/:id/reviews", (req, res) => {
+  const { id: hotelId } = req.params;
+  const { review } = req.body;
+  console.log(req.body);
+  console.log('POST Reviews', review);
+  const reviewId = ++dynamicReviewsCounter;
+  dynamicReviews[hotelId] = [
+    ...(dynamicReviews[hotelId] || []),
+  ];
+  const addedReview = {
+    id: reviewId,
+    ...review,
+  };
+  dynamicReviews[hotelId].push(addedReview);
+  console.log(dynamicReviews[hotelId]);
+  console.log(addedReview);
+  res.send(addedReview);
 });
 
 module.exports = app;
