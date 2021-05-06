@@ -24,7 +24,7 @@ const apolloClient = new ApolloClient({
       if (networkError) console.log(`[Network error]: ${networkError}`);
     }),
     new HttpLink({
-      uri: 'https://graphql-server-gql-api.vercel.app/api',
+      uri: 'https://graphql-workshop-gql-api.vercel.app/api',
     })
   ]),
 })
