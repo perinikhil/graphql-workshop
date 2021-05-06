@@ -3,8 +3,6 @@ const { gql } = require('apollo-server-micro');
 
 // const API_URL = 'http://localhost:5000/api';
 const API_URL = 'https://graphql-workshop-rest-api.vercel.app/api';
-let dynamicReviewsCounter = 0;
-let dynamicReviews = [];
 
 const schema = {
   typeDefs: [
@@ -78,11 +76,7 @@ const schema = {
       price: (hotel) => hotel.priceInfo,
       reviewScore: (hotel) => hotel.score,
       reviews: (hotel) => fetch(`${API_URL}/hotels/${hotel.id}/reviews`)
-        .then((res) => res.json())
-        .then((reviews) => [ 
-          ...reviews,
-          ...dynamicReviews.filter((review) => review.hotelId !== hotel.id),
-        ])
+        .then((res) => res.json()),
     },
     Review: {
       id: (review) => review.id,
@@ -96,13 +90,21 @@ const schema = {
     },
     Mutation: {
       addReview: (_, args) => {
-        const review = {
-          ...args.review,
-          id: ++dynamicReviewsCounter,
-          guestName: args.review.guest.name,
-        };
-        dynamicReviews.push(review);
-        return review;
+        const { review: reviewInput } = args;
+        return fetch(`${API_URL}/hotels/${args.review.hotelId}/reviews`, {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            review: {
+              hotelId: reviewInput.hotelId,
+              guestName: reviewInput.guest.name,
+              message: reviewInput.message,
+            },
+          }),
+        }).then((res) => res.json());
       },
     },
   },
