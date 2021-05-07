@@ -1,7 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { gql, useQuery } from '@apollo/client';
-import { getFormattedImageUrl,getFormattedPrice } from "../utils";
 import "./HotelPage.css";
 
 const hotelQuery = gql`
@@ -41,9 +40,6 @@ const HotelPage = () => {
 
   const { hotelById: hotel } = data;
 
-  const formattedPrice = getFormattedPrice(hotel.price);
-  const formattedImage = getFormattedImageUrl(hotel.imageUrl);
-
   const handleReviewChange = (e) => {
     e.persist();
     setReview((prevReview) => ({
@@ -59,14 +55,14 @@ const HotelPage = () => {
 
   return (
     <div className="hotel-page">
-      <img className="hotel-page__image" src={formattedImage} alt="" />
+      <img className="hotel-page__image" src={`http://q-xx.bstatic.com${hotel.imageUrl}`} alt="" />
       <div className="hotel-page__section">
         <h2 className="hotel-page__title">{hotel.name}</h2>
         <h4 className="hotel-page__review-score">{hotel.reviewScore}</h4>
       </div>
       <div className="hotel-page__section">
         <p className="hotel-page__city">{hotel.city}</p>
-        <h3 className="hotel-page__price">{formattedPrice}</h3>
+        <h3 className="hotel-page__price">{hotel.price.currencyCode} {hotel.price.amount}</h3>
       </div>
       <form
         className="hotel-page__review-form"

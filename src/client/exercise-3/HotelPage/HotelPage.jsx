@@ -1,5 +1,5 @@
 import React from "react";
-import { getFormattedImageUrl,getFormattedPrice } from "../utils";
+// import { useParams } from "react-router-dom";
 import "./HotelPage.css";
 
 const hotel = {
@@ -20,9 +20,8 @@ const hotel = {
       guest: {
         name: "Virginia",
       },
-      positiveComment:
+      message:
         "The staff was very friendly. The room was very clean and comfortable. \nThere were a variety of choices for breakfast and more than enough food. \nThere was a pool table in the lobby for guest to enjoy. \nThe location is right next to the car rental center with easy access to the airport and highway. \nIt is close to the strip, by car, but far enough away to keep you out of the congestion.\nGood price. I’d definitely come back when I’m in the area. ",
-      negativeComment: "Nothing I could think of. Stayed 1 night. "
     },
     {
       id: 4521354086,
@@ -30,36 +29,31 @@ const hotel = {
       guest: {
         name: "Cynthia",
       },
-      positiveComment:
+      message:
         "Shuttle service and breakfast. That took away some of the stresses of travel",
-      negativeComment: ""
     }
   ]
 }
 
 const HotelPage = () => {
-  const formattedPrice = getFormattedPrice(hotel.price);
-  const formattedImage = getFormattedImageUrl(hotel.imageUrl);
+  // const { id } = useParams(); // hotel's id from the SearchPageCard you clicked
 
   return (
     <div className="hotel-page">
-      <img className="hotel-page__image" src={formattedImage} alt="" />
+      <img className="hotel-page__image" src={`http://q-xx.bstatic.com${hotel.imageUrl}`} alt="" />
       <div className="hotel-page__section">
         <h2 className="hotel-page__title">{hotel.name}</h2>
         <h4 className="hotel-page__review-score">{hotel.reviewScore}</h4>
       </div>
       <div className="hotel-page__section">
         <p className="hotel-page__city">{hotel.city}</p>
-        <h3 className="hotel-page__price">{formattedPrice}</h3>
+        <h3 className="hotel-page__price">{hotel.price.currencyCode} {hotel.price.amount}</h3>
       </div>
       <div className="hotel-page__review-list">
         {hotel.reviews.map((review) => (
           <div key={review.id} className="hotel-page__review">
             <h5 className="hotel-page__review-name">{review.guest.name}</h5>
-            {review.positiveComment &&
-              <p className="hotel-page__review-message">👍 : {review.positiveComment}</p>}
-            {review.negativeComment &&
-              <p className="hotel-page__review-message">👎 : {review.negativeComment}</p>}
+            <p className="hotel-page__review-message">{review.message}</p>
           </div>
         ))}
       </div>

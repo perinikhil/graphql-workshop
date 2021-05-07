@@ -1,18 +1,15 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import { getFormattedImageUrl,getFormattedPrice } from "../../utils";
 import "./SearchPageCard.css";
 
 const SearchPageCard = (props) => {
   const { id, name, city, imageUrl, price, reviewScore } = props;
-  const formattedPrice = getFormattedPrice(price);
-  const formattedImage = getFormattedImageUrl(imageUrl);
 
   return (
     <Link className="search-page-card" to={`/hotel/${id}`}>
       <div className="search-page-card__side">
-        <img className="search-page-card__image" src={formattedImage} alt="" />
+        <img className="search-page-card__image" src={`http://q-xx.bstatic.com${imageUrl}`} alt="" />
       </div>
       <div className="search-page-card__main">
         <div className="search-page-card__header">
@@ -21,7 +18,7 @@ const SearchPageCard = (props) => {
         </div>
         <div className="search-page-card__footer">
           <h4 className="search-page-card__review-score">{reviewScore}</h4>
-          <h3 className="search-page-card__price">{formattedPrice}</h3>
+          <h3 className="search-page-card__price">{price.currencyCode} {price.amount}</h3>
         </div>
       </div>
     </Link>
